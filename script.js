@@ -5,7 +5,7 @@ function calculate() {
     var input2 = parseFloat(document.getElementById('input2').value) || 0;
     var input3 = parseFloat(document.getElementById('input3').value) || 0;
     var input4 = document.getElementById("input4").value;
-    var input5 = parseFloat(document.getElementById('input5').value) || 0;
+    var input5 = document.getElementById('input5').value || 0;
 
     let fulldate = "20"+input5;
 
@@ -19,7 +19,7 @@ function calculate() {
     }
 
     let slutDag = slutDatum(input1,input2,input3,input4);
-    var datestring = slutDag.getFullYear()  + "-" + String(slutDag.getMonth()+1).padStart(2,"0") + "-" + String(slutDag.getDate()).padStart(2, '0');
+    var datestring = slutDag.getFullYear()  + "-" + String(slutDag.getMonth()).padStart(2,"0") + "-" + String(slutDag.getDate()).padStart(2, '0');
 
     var perDag = antalPerDag(input1,input2,input3,input4);
 

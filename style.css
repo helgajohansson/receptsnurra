@@ -1,41 +1,85 @@
-body {
-    font-family: Arial, sans-serif;
+* { 
     margin: 0;
     padding: 0;
-    background-color: #dae1f4;
+    box-sizing: border-box;
 }
 
-header, footer {
-    background-color: #333;
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+header {
+    /*background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);*/
     color: white;
     text-align: center;
     padding: 1em;
 }
 
+footer {
+    text-align: center;
+    position: relative;
+}
+
 main {
     padding: 20px;
     margin: auto;
-    height: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+header h1 {
+    font-size: 50px;
+    font-weight: 600;
+    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
 
 #dataForm {
     margin: auto;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    height: 80%;
+    flex-direction: column;
 }
 
-.inputlabels2 {
+#content {
+    margin-bottom: 50px;
+    width: 40%;
+    background-color: #FDFEFE;
+    padding: 5%;
+    padding-bottom: 20%;
+    border-radius: 10px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    
+}
 
+.inputlabels {
     box-shadow: inset #abacaf 0 0 0 2px;
     border: 0;
     background: rgba(0, 0, 0, 0);
+    margin-top: 10px;
+    margin-bottom: 25px;
     appearance: none;
-    width: 100%;
+    width: 80%;
     position: relative;
     border-radius: 3px;
-    padding: 9px 12px;
+    padding: 10px;
     line-height: 1.4;
     color: rgb(0, 0, 0);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     height: 40px;
     transition: all .2s ease;
@@ -48,4 +92,111 @@ main {
         box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
     }
 
+}
+
+.button_test {
+    width: auto;
+    margin-top: 50px;
+}
+
+.button-17 {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+
+.button-17:hover {
+  /*background: #F6F9FE;*/
+  background: #fef6fdec;
+  /*color: #174ea6;*/
+  color: #a61774;
+}
+
+.button-17:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.button-17:focus {
+  outline: none;
+  /*border: 2px solid #4285f4;*/
+  border: 2px solid #f44277;
+}
+
+.button-17:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):hover {
+  /*box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;*/
+  box-shadow: rgba(67, 60, 62, 0.3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.button-17:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.button-17:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+
+#result {
+    width: 100%;
+    height: 20%px;
+}
+
+.labelstyle {
+    font-size: x-large;
+    margin: 5px;
+    padding: 10px;
+    padding-left: 0;
+}
+
+#div1 {
+    width: auto;
+}
+
+#div2 {
+    width: auto;
+}
+
+#input4 {
+    display:none ;
+}
+
+#label4 {
+    display: none;
 }

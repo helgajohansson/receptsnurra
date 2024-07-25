@@ -8,39 +8,36 @@
 </head>
 <body>
     <header>
-        <h1>Achimas Receptsnurra</h1>
+        <h1>Achimas Vislanda Receptsnurra</h1>
     </header>
     <main>
         <div id="content">
             <form id="dataForm">
-                <div>
-                    <label for="input1">Mängd:</label>
-                    <input type="text" id="input1" name="input1", class="inputlabels">
+                <div id="div1">
+                    <label for="input1" class="labelstyle">Mängd:</label>
+                    <input type="text" id="input1" name="input1" class="inputlabels">
+                    
+                </div>
+                <div id="div2">
+                    <label for="input2" class="labelstyle">Dosering:</label>
+                    <input type="text" id="input2" name="input2" class="inputlabels">
+                </div>
+                <div id="div3">
+                    <label for="input3" class="labelstyle">Exp. ggr:</label>
+                    <input type="text" id="input3" name="input3" class="inputlabels">
                 </div>
                 <div>
-                    <label for="input2">Dosering:</label>
-                    <input type="text" id="input2" name="input2",class="inputlabels">
+                    <label for="input4" class="labelstyle" id="label4">Ord. datum:</label>
+                    <input type="date" id="input4" name="input4" class="inputlabels">
                 </div>
                 <div>
-                    <label for="input3">Exp. ggr:</label>
-                    <input type="text" id="input3" name="input3",class="inputlabels">
+                    <label for="input5" class="labelstyle">Ord. datum (yymmdd):</label>
+                    <input type="text" id="input5" name="input5" class="inputlabels">
                 </div>
-                <div>
-                    <label for="input4">Ord. datum:</label>
-                    <input type="date" id="input4" name="input4",class="inputlabels">
-                </div>
-                <div>
-                    <label for="input5">Ord. datum2 (yymmdd):</label>
-                    <input type="text" id="input5" name="input5",class="inputlabels">
-                </div>
-                <button type="button" onclick="calculate()">Beräkna</button>
+                <button class="button_test" type="button" onclick="calculate()">Beräkna</button>
             </form>
             <p id="result"></p>
             <!-- Application content goes here -->
-
-            <div>
-                <button type="button" onclick="antalPerDag(100,2,1,'01/01/2024')">test</button>
-            </div>
         </div>
     </main>
     <footer>
