@@ -10,8 +10,8 @@ function calculate() {
     //let fulldate = "20"+input5;
 
     let input4 = formatDate(input5);
-    input2 = input2.replace("x","*");
-    let input2_int = eval(input2);
+    let input2_int = splitInputX(input2);
+
 
     let slutDag = slutDatum(input1,input2_int,input3,input4);
 
@@ -82,3 +82,14 @@ function formatDate(yyyymmdd) {
     // Return formatted date in yyyy-mm-dd format
     return `${year}-${month}-${day}`;
 }
+
+function splitInputX(text) {
+    if (text.includes("x")) {
+        let parts = text.split("x");
+        let product = parseInt(parts[0]) * parseInt(parts[1]);
+        return product
+    } else {
+        return parseInt(text)
+    }
+    
+}   
