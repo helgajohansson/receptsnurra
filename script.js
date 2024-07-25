@@ -2,26 +2,22 @@
 function calculate() {
     // Hämta värden från inmatningsfälten
     var input1 = parseFloat(document.getElementById('input1').value) || 0;
-    var input2 = parseFloat(document.getElementById('input2').value) || 0;
+    var input2 = document.getElementById('input2').value || 0;
     var input3 = parseFloat(document.getElementById('input3').value) || 0;
-    var input4 = document.getElementById("input4").value;
-    var input5 = document.getElementById('input5').value || 0;
+    //var input4 = document.getElementById("input4").value;
+    var input5 = "20"+(document.getElementById('input5').value);
 
-    let fulldate = "20"+input5;
+    //let fulldate = "20"+input5;
 
-    if (input5 != 0) {
-        input4 = formatDate(fulldate)
-    }
+    let input4 = formatDate(input5);
+    input2 = input2.replace("x","*");
+    let input2_int = eval(input2);
 
-    if (!Date.parse(input4)) {
-        alert("Ogiltigt datumformat. Ange datum i formatet YYYY-MM-DD.");
-        return;
-    }
+    let slutDag = slutDatum(input1,input2_int,input3,input4);
 
-    let slutDag = slutDatum(input1,input2,input3,input4);
-    var datestring = slutDag.getFullYear()  + "-" + String(slutDag.getMonth()).padStart(2,"0") + "-" + String(slutDag.getDate()).padStart(2, '0');
+    var datestring = slutDag.getFullYear()  + "-" + String(slutDag.getMonth()+1).padStart(2,"0") + "-" + String(slutDag.getDate()).padStart(2, '0');
 
-    var perDag = antalPerDag(input1,input2,input3,input4);
+    var perDag = antalPerDag(input1,input2_int,input3,input4);
 
     // Visa resultatet
     document.getElementById('result').innerText = "Slutdatum: " + datestring + ",  antal tagna per dag: " + Math.round(perDag*100)/100;
@@ -32,7 +28,6 @@ function slutDatum(amount, dosage, expggr, datum) {
     var antalDagar = (amount*expggr)/dosage;
     var firstDay = new Date(datum);
     let slutDag = addDays(firstDay,antalDagar);
-
     return slutDag
 }
 
