@@ -14,27 +14,24 @@
         <div id="content">
             <form id="dataForm" autocomplete="off">
                 <div id="div1">
-                    <label for="input1" class="labelstyle">Mängd:</label>
-                    <input type="text" id="input1" name="input1" class="inputlabels">
-                    
+                    <label for="amount" class="labelstyle">Mängd:</label>
+                    <input type="text" id="amount" name="amount" class="inputlabels">
                 </div>
                 <div id="div2">
-                    <label for="input2" class="labelstyle">Dosering:</label>
-                    <input type="text" id="input2" name="input2" class="inputlabels" placeholder="2x3">
+                    <label for="dosage" class="labelstyle">Dosering:</label>
+                    <input type="text" id="dosage" name="dosage" class="inputlabels" placeholder="2x3">
                 </div>
                 <div id="div3">
-                    <label for="input3" class="labelstyle">Exp. ggr:</label>
-                    <input type="text" id="input3" name="input3" class="inputlabels">
+                    <label for="expggr" class="labelstyle">Exp. ggr:</label>
+                    <input type="text" id="expggr" name="expggr" class="inputlabels">
                 </div>
                 <div>
-                    <label for="input4" class="labelstyle" id="label4">Ord. datum:</label>
-                    <input type="date" id="input4" name="input4" class="inputlabels">
+                    <label for="startDate1" class="labelstyle">Ord. datum:</label>
+                    <input type="text" id="startDate1" name="startDatum1" class="inputlabels" placeholder="yymmdd">
                 </div>
-                <div>
-                    <label for="input5" class="labelstyle">Ord. datum:</label>
-                    <input type="text" id="input5" name="input5" class="inputlabels" placeholder="yymmdd">
-                </div>
+
                 <button class="button-17" type="button" onclick="calculate()">Beräkna</button>
+                
             </form>
             <p id="result"></p>
             <!-- Application content goes here -->

@@ -8,7 +8,8 @@ body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0 auto;
     min-height: 100vh;
-    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    /*background-image: linear-gradient(-20deg, #fbfcdb 0% ,#e9defa 100%);*/
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -39,7 +40,7 @@ main {
 header h1 {
     font-size: 50px;
     font-weight: 600;
-    background-image: linear-gradient(to left, #553c9a, #b393d3);
+    background-color: #6991c7;
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
@@ -134,10 +135,8 @@ header h1 {
 }
 
 .button-17:hover {
-  /*background: #F6F9FE;*/
-  background: #fef6fdec;
-  /*color: #174ea6;*/
-  color: #610e44;
+  background: #F6F9FE;
+  color: #174ea6;
 }
 
 .button-17:active {
@@ -147,8 +146,7 @@ header h1 {
 
 .button-17:focus {
   outline: none;
-  /*border: 2px solid #4285f4;*/
-  /*border: 2px solid #fb608e;rätt*/
+  border: 2px solid #4285f4;
 }
 
 .button-17:not(:disabled) {
@@ -156,8 +154,7 @@ header h1 {
 }
 
 .button-17:not(:disabled):hover {
-  /*box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;*/
-  box-shadow: rgba(67, 60, 62, 0.3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
 }
 
 .button-17:not(:disabled):focus {
@@ -166,7 +163,6 @@ header h1 {
 
 .button-17:not(:disabled):active {
   box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-  border: 2px solid #fb608e;
 }
 
 .button-17:disabled {
@@ -178,6 +174,7 @@ header h1 {
     width: 100%;
     height: 20%;
     margin-top: 40px;
+    font-size: larger;
 }
 
 .labelstyle {

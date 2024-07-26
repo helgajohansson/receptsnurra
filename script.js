@@ -1,34 +1,39 @@
 
 function calculate() {
     // Hämta värden från inmatningsfälten
-    var input1 = parseFloat(document.getElementById('input1').value) || 0;
-    var input2 = document.getElementById('input2').value || 0;
-    var input3 = parseFloat(document.getElementById('input3').value) || 0;
-    //var input4 = document.getElementById("input4").value;
-    var input5 = "20"+(document.getElementById('input5').value);
+    var amount = parseFloat(document.getElementById('amount').value);
+    var dosage = document.getElementById('dosage').value;
+    var expggr = parseFloat(document.getElementById('expggr').value);
+    var startDate = formatDate("20"+(document.getElementById('startDate1').value));
 
-    //let fulldate = "20"+input5;
+    startDate = new Date(startDate); // convert to Date object
 
-    let input4 = formatDate(input5);
-    let input2_int = splitInputX(input2);
+    dosage = splitInputX(dosage); // convert to int
 
+    // SLUTDATUM, ej medräknat rest. Endast hela dagare
+    let endDay = endDate(amount, dosage, expggr, startDate);
+    
+    // ANTAL PER DAG
+    let perDay = amountPerDay(amount, dosage, expggr, startDate);
 
-    let slutDag = slutDatum(input1,input2_int,input3,input4);
+    var datestring = endDay.getFullYear()  + "-" + String(endDay.getMonth()+1).padStart(2,"0") + "-" + String(endDay.getDate()).padStart(2, '0');
 
-    var datestring = slutDag.getFullYear()  + "-" + String(slutDag.getMonth()+1).padStart(2,"0") + "-" + String(slutDag.getDate()).padStart(2, '0');
-
-    var perDag = antalPerDag(input1,input2_int,input3,input4);
+    if (perDay > dosage) {
+        document.getElementById('result').style.color = 'red';
+    }
+    if (perDay <= dosage) {
+        document.getElementById('result').style.color = 'green';
+    }
 
     // Visa resultatet
-    document.getElementById('result').innerText = "Slutdatum: " + datestring + ",  antal tagna per dag: " + Math.round(perDag*100)/100;
+    document.getElementById('result').innerText = " Borde tagit slut: " + datestring + "\n Antal tagna per dag: " + Math.round(perDay*100)/100;
 }
 
 // datum medicin bör räcka till om daglig dos hålls
-function slutDatum(amount, dosage, expggr, datum) {
-    var antalDagar = (amount*expggr)/dosage;
-    var firstDay = new Date(datum);
-    let slutDag = addDays(firstDay,antalDagar);
-    return slutDag
+function endDate(amount, dosage, expggr, startDate) {
+    var numberOfDays = Math.floor((amount*expggr)/dosage);
+    let endDay = addDays(startDate, numberOfDays);
+    return endDay
 }
 
 // dagens datum i en string med form yyyy-mm-dd
@@ -42,12 +47,14 @@ function todaysDate() {
 }
 
 // beräkna hur många tabletter per dag som använts sen "datum" till idag
-function antalPerDag(amount, dosage, expggr, datum) {
+function amountPerDay(amount, dosage, expggr, startDate) {
     const today = new Date();
-    const ordDate = new Date(datum);
-    let diff = daysBetween(today,ordDate);
-    let perDag = (amount*expggr)/diff;
-    return perDag
+    let perDay;
+    let diff = daysBetween(today, startDate);
+
+    perDay = (amount*expggr) / diff; 
+
+    return perDay
 }
 
 // lägg till dagar på datum, returnerar nya datumet
@@ -60,11 +67,15 @@ function addDays(date, days) {
 function daysBetween(date1,date2) {
     let dateOne = new Date(date1);
     let dateTwo = new Date(date2);
+    let Difference_In_Time;
     
-    // Calculating the time difference
-    // of two dates
-    let Difference_In_Time = dateOne.getTime() - dateTwo.getTime();
-
+    // Calculating the time difference of two dates
+    if (dateOne < dateTwo) {
+        Difference_In_Time = dateTwo.getTime() - dateOne.getTime();
+    } else {
+        Difference_In_Time = dateOne.getTime() - dateTwo.getTime();
+    }
+    
     let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
 
     return Difference_In_Days
@@ -84,12 +95,12 @@ function formatDate(yyyymmdd) {
 }
 
 function splitInputX(text) {
+    let result;
     if (text.includes("x")) {
         let parts = text.split("x");
-        let product = parseInt(parts[0]) * parseInt(parts[1]);
-        return product
+        result = parseInt(parts[0]) * parseInt(parts[1]);
     } else {
-        return parseInt(text)
+        result = parseInt(text);
     }
-    
+    return result
 }   
