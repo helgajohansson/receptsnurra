@@ -15,7 +15,7 @@
             <form id="dataForm" autocomplete="off">
                 <div id="div1">
                     <label for="amount" class="labelstyle">Mängd:</label>
-                    <input type="text" id="amount" name="amount" class="inputlabels">
+                    <input type="text" id="amount" name="amount" class="inputlabels" autofocus>
                 </div>
                 <div id="div2">
                     <label for="dosage" class="labelstyle">Dosering:</label>
@@ -30,7 +30,7 @@
                     <input type="text" id="startDate1" name="startDatum1" class="inputlabels" placeholder="yymmdd">
                 </div>
 
-                <button class="button-17" type="button" onclick="calculate()">Beräkna</button>
+                <button class="button-17" type="button" onclick="calculate()" id="submitButton">Beräkna</button>
                 
             </form>
             <p id="result"></p>
@@ -41,5 +41,6 @@
         <p>&copy; 2024 </p>
     </footer>
     <script src="script.js"></script>
+    
 </body>
 </html>

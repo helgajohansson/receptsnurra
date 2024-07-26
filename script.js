@@ -1,4 +1,23 @@
 
+const inputs = document.querySelectorAll('#dataForm input');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // Check if there is a next input element
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus(); // Move focus to the next input
+                    } else {
+                        // If it's the last input, optionally submit the form or handle differently
+                        document.getElementById('submitButton').focus();
+                    }
+                }
+            });
+        });
+
+
 function calculate() {
     // Hämta värden från inmatningsfälten
     var amount = parseFloat(document.getElementById('amount').value);
@@ -26,7 +45,7 @@ function calculate() {
     }
 
     // Visa resultatet
-    document.getElementById('result').innerText = " Borde tagit slut: " + datestring + "\n Antal tagna per dag: " + Math.round(perDay*100)/100;
+    document.getElementById('result').innerText = " Borde tagit slut: " + datestring + "\n\n Om medicin slut idag så har: " + Math.round(perDay*100)/100 + " styck/dag tagits sen ord. datum. ";
 }
 
 // datum medicin bör räcka till om daglig dos hålls
